@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Terminal Velocity Calculator</title>
+  <meta charset="utf-8">
+  <script>
+    function calculatev(){
+      const m=parseFloat(document.getElementById("mass").value)
+      const rho=parseFloat(document.getElementById("density").value)
+      const A=parseFloat(document.getElementById("area").value)
+      const C=parseFloat(document.getElementById("C").value)
+      const g=9.8;
+
+      if(!m||!rho||!A||!C){
+        alert("plz check the blanks again!")
+        return;
+      }
+
+      const v=Math.sqrt((2*m*g)/(C*rho*A))
+      document.getElementById("result").value=v.toFixed(2)
+    }
+  </script>
+</head>
+<body>
+ <label>질량 m(kg):<input type='number' id='mass' step='any'>/</label><br>
+ <label>유체 밀도 ρ(kg/m^^3):<input type='number' id='density' step='any'>/</label><br>
+ <label>단면적 A(m^^2):<input type='number' id='area' step='any'>/</label><br>
+ <label>항력 계수 C:<input type='number' id='C' step='any'>/</label><br>
+ <button onclick="calculatev()">계산하기</button><br><br>
+ <label>종단 속도v(m/s):<input type='number' id='result' readonly>/</label>
+</body>
+</html>
